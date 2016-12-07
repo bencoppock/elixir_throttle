@@ -10,6 +10,8 @@ defmodule HelloPlug do
     children = [
       # Starts a worker by calling: HelloPlug.Worker.start_link(arg1, arg2, arg3)
       # worker(HelloPlug.Worker, [arg1, arg2, arg3]),
+      Plug.Adapters.Cowboy.child_spec(:http, Router, [], [port: 4000]),
+      # worker(RequestCounter, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

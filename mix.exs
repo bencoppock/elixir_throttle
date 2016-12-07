@@ -14,7 +14,7 @@ defmodule HelloPlug.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger],
+    [applications: [:logger, :cowboy, :plug],
      mod: {HelloPlug, []}]
   end
 
@@ -28,6 +28,11 @@ defmodule HelloPlug.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:cowboy, "~> 1.0.0"},
+      {:plug, "~> 1.0"},
+      {:tesla, "~> 0.5.0"},
+      {:hackney, "~> 1.6.3"}
+    ]
   end
 end
